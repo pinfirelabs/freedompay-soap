@@ -1,0 +1,21 @@
+{
+    "name": "freedompay/freeway",
+    "description": "SOAP bindings for FreedomPay's Freeway gateway",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Justin Cherniak",
+            "email": "jcherniak@pinfirelabs.com"
+        }
+    ],
+    "require": {
+		"ext-soap": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"FreedomPay\\Freeway\\": [
+				"src/"
+			]
+		}
+	}
+}
