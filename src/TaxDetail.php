@@ -28,7 +28,7 @@ class TaxDetail
      * @param TaxDetailItem[] $tax
      * @return \FreedomPay\Freeway\TaxDetail
      */
-    public function setTax(array $tax = null)
+    public function setTax(?array $tax = null)
     {
       $this->tax = $tax;
       return $this;

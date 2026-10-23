@@ -28,7 +28,7 @@ class ArrayOfString2 implements \ArrayAccess, \Iterator, \Countable
      * @param string[] $missingField
      * @return \FreedomPay\Freeway\ArrayOfString2
      */
-    public function setMissingField(array $missingField = null)
+    public function setMissingField(?array $missingField = null)
     {
       $this->missingField = $missingField;
       return $this;
@@ -40,7 +40,7 @@ class ArrayOfString2 implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset An offset to check for
      * @return boolean true on success or false on failure
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset) : bool
     {
       return isset($this->missingField[$offset]);
     }
@@ -51,6 +51,7 @@ class ArrayOfString2 implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to retrieve
      * @return string
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
       return $this->missingField[$offset];
@@ -63,7 +64,7 @@ class ArrayOfString2 implements \ArrayAccess, \Iterator, \Countable
      * @param string $value The value to set
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value) : void
     {
       if (!isset($offset)) {
         $this->missingField[] = $value;
@@ -78,7 +79,7 @@ class ArrayOfString2 implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to unset
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset) : void
     {
       unset($this->missingField[$offset]);
     }
@@ -88,6 +89,7 @@ class ArrayOfString2 implements \ArrayAccess, \Iterator, \Countable
      *
      * @return string Return the current element
      */
+    #[\ReturnTypeWillChange]
     public function current()
     {
       return current($this->missingField);
@@ -99,7 +101,7 @@ class ArrayOfString2 implements \ArrayAccess, \Iterator, \Countable
      *
      * @return void
      */
-    public function next()
+    public function next() : void
     {
       next($this->missingField);
     }
@@ -109,6 +111,7 @@ class ArrayOfString2 implements \ArrayAccess, \Iterator, \Countable
      *
      * @return string|null Return the key of the current element or null
      */
+    #[\ReturnTypeWillChange]
     public function key()
     {
       return key($this->missingField);
@@ -119,7 +122,7 @@ class ArrayOfString2 implements \ArrayAccess, \Iterator, \Countable
      *
      * @return boolean Return the validity of the current position
      */
-    public function valid()
+    public function valid() : bool
     {
       return $this->key() !== null;
     }
@@ -130,7 +133,7 @@ class ArrayOfString2 implements \ArrayAccess, \Iterator, \Countable
      *
      * @return void
      */
-    public function rewind()
+    public function rewind() : void
     {
       reset($this->missingField);
     }
@@ -140,7 +143,7 @@ class ArrayOfString2 implements \ArrayAccess, \Iterator, \Countable
      *
      * @return string Return count of elements
      */
-    public function count()
+    public function count() : int
     {
       return count($this->missingField);
     }

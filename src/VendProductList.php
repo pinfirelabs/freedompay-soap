@@ -35,7 +35,7 @@ class VendProductList
      * @param VendProduct[] $product
      * @return \FreedomPay\Freeway\VendProductList
      */
-    public function setProduct(array $product = null)
+    public function setProduct(?array $product = null)
     {
       $this->product = $product;
       return $this;

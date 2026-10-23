@@ -28,7 +28,7 @@ class ArrayOfLoyaltyProgramData implements \ArrayAccess, \Iterator, \Countable
      * @param LoyaltyProgramData[] $program
      * @return \FreedomPay\Freeway\ArrayOfLoyaltyProgramData
      */
-    public function setProgram(array $program = null)
+    public function setProgram(?array $program = null)
     {
       $this->program = $program;
       return $this;
@@ -40,7 +40,7 @@ class ArrayOfLoyaltyProgramData implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset An offset to check for
      * @return boolean true on success or false on failure
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset) : bool
     {
       return isset($this->program[$offset]);
     }
@@ -51,6 +51,7 @@ class ArrayOfLoyaltyProgramData implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to retrieve
      * @return LoyaltyProgramData
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
       return $this->program[$offset];
@@ -63,7 +64,7 @@ class ArrayOfLoyaltyProgramData implements \ArrayAccess, \Iterator, \Countable
      * @param LoyaltyProgramData $value The value to set
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value) : void
     {
       if (!isset($offset)) {
         $this->program[] = $value;
@@ -78,7 +79,7 @@ class ArrayOfLoyaltyProgramData implements \ArrayAccess, \Iterator, \Countable
      * @param mixed $offset The offset to unset
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset) : void
     {
       unset($this->program[$offset]);
     }
@@ -88,6 +89,7 @@ class ArrayOfLoyaltyProgramData implements \ArrayAccess, \Iterator, \Countable
      *
      * @return LoyaltyProgramData Return the current element
      */
+    #[\ReturnTypeWillChange]
     public function current()
     {
       return current($this->program);
@@ -99,7 +101,7 @@ class ArrayOfLoyaltyProgramData implements \ArrayAccess, \Iterator, \Countable
      *
      * @return void
      */
-    public function next()
+    public function next() : void
     {
       next($this->program);
     }
@@ -109,6 +111,7 @@ class ArrayOfLoyaltyProgramData implements \ArrayAccess, \Iterator, \Countable
      *
      * @return string|null Return the key of the current element or null
      */
+    #[\ReturnTypeWillChange]
     public function key()
     {
       return key($this->program);
@@ -119,7 +122,7 @@ class ArrayOfLoyaltyProgramData implements \ArrayAccess, \Iterator, \Countable
      *
      * @return boolean Return the validity of the current position
      */
-    public function valid()
+    public function valid() : bool
     {
       return $this->key() !== null;
     }
@@ -130,7 +133,7 @@ class ArrayOfLoyaltyProgramData implements \ArrayAccess, \Iterator, \Countable
      *
      * @return void
      */
-    public function rewind()
+    public function rewind() : void
     {
       reset($this->program);
     }
@@ -140,7 +143,7 @@ class ArrayOfLoyaltyProgramData implements \ArrayAccess, \Iterator, \Countable
      *
      * @return LoyaltyProgramData Return count of elements
      */
-    public function count()
+    public function count() : int
     {
       return count($this->program);
     }

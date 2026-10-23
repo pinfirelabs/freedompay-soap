@@ -28,7 +28,7 @@ class InvoicePromos
      * @param string[] $promo
      * @return \FreedomPay\Freeway\InvoicePromos
      */
-    public function setPromo(array $promo = null)
+    public function setPromo(?array $promo = null)
     {
       $this->promo = $promo;
       return $this;

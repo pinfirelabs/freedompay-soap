@@ -150,7 +150,7 @@ class IncentiveService
      * @param IncentiveIncentive[] $incentives
      * @return \FreedomPay\Freeway\IncentiveService
      */
-    public function setIncentives(array $incentives = null)
+    public function setIncentives(?array $incentives = null)
     {
       $this->incentives = $incentives;
       return $this;

@@ -28,7 +28,7 @@ class InvoiceDiscountDetail
      * @param EIDDetail[] $discount
      * @return \FreedomPay\Freeway\InvoiceDiscountDetail
      */
-    public function setDiscount(array $discount = null)
+    public function setDiscount(?array $discount = null)
     {
       $this->discount = $discount;
       return $this;
